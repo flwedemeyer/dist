@@ -1,4 +1,11 @@
-var bkApp = angular.module('bkApp', []);
+var bkApp = angular.module('bkApp', [
+  'ngRoute',
+  'bkAppControllers'
+  ]);
+  
+  bkApp.config(['$httpProvider', function($httpProvider) {
+    delete $httpProvider.defaults.headers.common["X-Requested-With"]
+  }]);
 
   // configure our routes
   bkApp.config(function($routeProvider) {
